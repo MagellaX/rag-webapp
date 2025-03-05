@@ -160,10 +160,7 @@ async def query_with_knowledge_base(text: str = Query(..., description="Input te
         logger.error(f"Unexpected error: {e}")
         raise HTTPException(status_code=500, detail=f"Unexpected error: {str(e)}")
 
-# This is required for AWS Elastic Beanstalk
-application = app
 
-# This is only used for local development, Elastic Beanstalk ignores this
 if __name__ == "__main__":
     import uvicorn
     uvicorn.run(app, host="127.0.0.1", port=8000, reload=True)
